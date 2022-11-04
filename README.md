@@ -39,7 +39,7 @@ LIMIT [count];
 ## Table Setup  (Code Along)
 
 We will work with the same `pet` table from the previous lesson.  
-Copy and execute the following SQL statements in the**pgAdmin**
+Copy and execute the following SQL statements in the **pgAdmin**
 query tool to ensure we are starting with the same of rows.
 Note that we've added two additional dogs, a Poodle and a YorkiePoo.
 We will do some pattern matching using their breed names.
@@ -340,7 +340,7 @@ Display name and age of
 pets between 4 and 10 years old (inclusive):
 
 ```sql
-SELECT name, breed, age
+SELECT name, age
 FROM pet
 WHERE age >= 4 AND age <= 10;
 ```
@@ -476,7 +476,7 @@ test for missing or unknown values:
 ```sql
 SELECT id, name, age
 FROM pet
-WHERE age IS NULL
+WHERE age IS NULL;
 ```
 
 </td>
@@ -500,7 +500,7 @@ test for known values:
 ```sql
 SELECT id, name, age
 FROM pet
-WHERE age IS NOT NULL
+WHERE age IS NOT NULL;
 ```
 
 </td>
@@ -544,8 +544,8 @@ For example:
 We can also use functions that convert a string to lowercase or
 uppercase to perform case-insensitive matching:
 
-- `lower(str)` - return the lowercase version of string `str`.
-- `upper(str)` - return the uppercase version of string `str`.
+- `LOWER(str)` - return the lowercase version of string `str`.
+- `UPPER(str)` - return the uppercase version of string `str`.
 
 <table>
 <tr>
@@ -616,7 +616,7 @@ substring "poo" (case insensitive match).
 ```sql
 SELECT name, breed
 FROM pet
-WHERE lower(breed) LIKE '%poo%';
+WHERE LOWER(breed) LIKE '%poo%';
 ```
 
 </td>
@@ -639,7 +639,7 @@ Lulu    Yorkiepoo
 ## ORDER BY
 
 The `ORDER BY` clause sorts the retrieved rows by order of one or more columns.
-The optional keywords `asc` and `desc` will sort respectively
+The optional keywords `ASC` and `DESC` will sort respectively
 in ascending or descending order.  Rows are sorted in ascending order by default.
 
 The `ORDER BY` clause follows the `WHERE` clause, if there is one.
@@ -688,7 +688,7 @@ Sort in descending order of age:
 SELECT name, age
 FROM pet
 WHERE species = 'cat'
-ORDER BY age desc;
+ORDER BY age DESC;
 ```
 
 </td>
@@ -711,15 +711,15 @@ Primary sort in ascending order by species.
 
 Secondary sort in descending order by age.
 
-The `asc` keyword can be omitted:
+The `ASC` keyword can be omitted:
 
 ```sql
 SELECT name, species, age
 FROM pet
-ORDER BY species asc, age desc;
+ORDER BY species ASC, age DESC;
 ```
 
-The `null` value is largest dog age.
+NOTE: the `null` value is ordered as the largest dog age.
 </td>
 <td>
 
@@ -749,7 +749,7 @@ contain null values when sorting:
 SELECT name, species, age
 FROM pet
 WHERE age IS NOT NULL
-ORDER BY species asc, age desc;
+ORDER BY species ASC, age DESC;
 ```
 
 </td>
@@ -784,7 +784,7 @@ of rows to display:
 SELECT name, age
 FROM pet
 WHERE age IS NOT NULL
-ORDER BY age desc
+ORDER BY age DESC
 LIMIT 2;
 ```
 
