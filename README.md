@@ -20,7 +20,7 @@ a predicate.
 
 The general syntax for selecting rows from a single table is:
 
-```roomsql
+```sql
 SELECT [comma-separated list of columns]
 FROM [table_name]
 WHERE [row selection predicate]
