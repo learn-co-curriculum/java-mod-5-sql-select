@@ -31,8 +31,9 @@ LIMIT [count];
 - The `WHERE` clause is optional.  The clause is used to select a subset of rows that match
   the predicate.  If omitted, all rows are retrieved.
 - The `ORDER BY` clause is optional.  The clause is used to sort the result set based on
-  the order of one or more columns.  If omitted, the rows are not sorted and may appear in
-  any order.
+  the order of one or more columns.  If omitted, the row order is determined by the DBMS.
+  While some use  a default order based on the primary key, PostgreSQL displays rows in
+  chronological order of insertions and updates.
 - The `LIMIT` clause is optional. The clause restricts the number of rows displayed in the result.
 
 
