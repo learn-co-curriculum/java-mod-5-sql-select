@@ -1,4 +1,4 @@
-# SQL Select Statement
+# SQL SELECT Statement
 
 ## Learning Goals
 
