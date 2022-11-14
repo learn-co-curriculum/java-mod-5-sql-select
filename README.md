@@ -817,4 +817,5 @@ clause will sort the rows according to one or more columns.
 
 ## Resources
 
-[PostgreSQL SELECT](https://www.postgresql.org/docs/current/sql-select.html)
+- [PostgreSQL SELECT](https://www.postgresql.org/docs/current/sql-select.html)     
+- [PostgreSQL Practice Exercises](https://pgexercises.com/)  
