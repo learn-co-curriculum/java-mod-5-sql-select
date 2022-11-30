@@ -127,10 +127,8 @@ Display all columns and rows:
 
 <pre>
 <code>
-
 SELECT *
 FROM pet;
-
 </code>
 </pre>
 
@@ -161,10 +159,8 @@ Display a subset of columns:
 
 <pre>
 <code>
-
 SELECT name, species
 FROM pet;
-
 </code>
 </pre>
 
@@ -193,10 +189,8 @@ Display unique values within a column:
 
 <pre>
 <code>
-
 SELECT DISTINCT species
-FROM pet; 
-
+FROM pet;
 </code>
 </pre>
 
@@ -246,11 +240,9 @@ Display name and age of pets younger than 5:
 
 <pre>
 <code>
-
 SELECT name, age
 FROM pet
 WHERE age < 5;
-
 </code>
 </pre>
 
@@ -276,11 +268,9 @@ Display name, breed, age of all cats:
 
 <pre>
 <code>
-
 SELECT name, breed, age
 FROM pet
 WHERE species = 'cat';
-
 </code>
 </pre>
 
@@ -309,11 +299,9 @@ pet that is not a cat:
 
 <pre>
 <code>
-
 SELECT name, species
 FROM pet
 WHERE species != 'cat';
-
 </code>
 </pre>
 
@@ -341,11 +329,9 @@ cats younger than 5:
 
 <pre>
 <code>
-
 SELECT name, breed, age
 FROM pet
 WHERE species = 'cat' AND age < 5;
-
 </code>
 </pre>
 
@@ -370,11 +356,9 @@ Display name and age of pets between<br>
 
 <pre>
 <code>
-
 SELECT name, age
 FROM pet
 WHERE age >= 4 AND age <= 10;
-
 </code>
 </pre>
 
@@ -401,11 +385,9 @@ a range of ages (inclusive):
 
 <pre>
 <code>
-
 SELECT name,age
 FROM pet
 WHERE age BETWEEN 4 AND 10;
-
 </code>
 </pre>
 
@@ -425,9 +407,6 @@ Herbie      4
 </tr>
 
 
-
-
-
 <tr>
 <td>
 Display pets whose breed is
@@ -435,11 +414,9 @@ Bichon or Cavachon:
 
 <pre>
 <code>
-
 SELECT name, breed
 FROM pet
 WHERE breed = 'Bichon' OR breed = 'Cavachon';
-
 </code>
 </pre>
 
@@ -463,11 +440,9 @@ used to match a list of possible values:
 
 <pre>
 <code>
-
 SELECT name, breed
 FROM pet
 WHERE breed IN ( 'Bichon' , 'Cavachon' );
-
 </code>
 </pre>
 
@@ -494,11 +469,9 @@ do not match the predicate:
 
 <pre>
 <code>
-
 SELECT name, species
 FROM pet
 WHERE species NOT IN ( 'dog' , 'cat' );
-
 </code>
 </pre>
 
@@ -523,11 +496,9 @@ test<br> for missing or unknown values:
 
 <pre>
 <code>
-
 SELECT id, name, age
 FROM pet
 WHERE age IS NULL;
-
 </code>
 </pre>
 
@@ -551,11 +522,9 @@ test for known values:
 
 <pre>
 <code>
-
 SELECT id, name, age
 FROM pet
 WHERE age IS NOT NULL;
-
 </code>
 </pre>
 
@@ -620,11 +589,9 @@ where breed ends in "chon":
 
 <pre>
 <code>
-
 SELECT name, breed
 FROM pet
 WHERE breed LIKE '%chon';
-
 </code>
 </pre>
 
@@ -651,11 +618,9 @@ substring "poo" (case sensitive).
 
 <pre>
 <code>
-
 SELECT name, breed
 FROM pet
 WHERE breed LIKE '%poo%';
-
 </code>
 </pre>
 
@@ -679,11 +644,9 @@ substring "poo" (case insensitive match).
 
 <pre>
 <code>
-
 SELECT name, breed
 FROM pet
 WHERE LOWER(breed) LIKE '%poo%';
-
 </code>
 </pre>
 
@@ -728,12 +691,10 @@ Sort in ascending order of age:
 
 <pre>
 <code>
-
 SELECT name, age
 FROM pet
 WHERE species = 'cat'
 ORDER BY age;
-
 </code>
 </pre>
 
@@ -762,7 +723,6 @@ SELECT name, age
 FROM pet
 WHERE species = 'cat'
 ORDER BY age DESC;
-
 </code>
 </pre>
 
@@ -790,11 +750,9 @@ The `ASC` keyword can be omitted:
 
 <pre>
 <code>
-
 SELECT name, species, age
 FROM pet
 ORDER BY species ASC, age DESC;
-
 </code>
 </pre>
 
@@ -826,12 +784,10 @@ contain null values when sorting:
 
 <pre>
 <code>
-
 SELECT name, species, age
 FROM pet
 WHERE age IS NOT NULL
 ORDER BY species ASC, age DESC;
-
 </code>
 </pre>
 
@@ -865,13 +821,11 @@ of rows to display:
 
 <pre>
 <code>
-
 SELECT name, age
 FROM pet
 WHERE age IS NOT NULL
 ORDER BY age DESC
 LIMIT 2;
-
 </code>
 </pre>
 
