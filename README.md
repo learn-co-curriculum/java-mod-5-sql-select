@@ -84,15 +84,15 @@ INSERT INTO pet (id, name, species, breed, age)
 VALUES (8, 'Lulu', 'dog', 'Yorkiepoo', 12);
 ```
 
-1. After executing the SQL statements listed above, clear the query panel to remove the statements:  
+After executing the SQL statements listed above, clear the query panel to remove the statements:  
 
    ![clear query](https://curriculum-content.s3.amazonaws.com/6036/sql-select-statement/clearquery.png)    
 
-2. Select Yes to discard the changes (this discards changes to the query panel editor, not changes to the table)
+Select Yes to discard the changes (this discards changes to the query panel editor, not changes to the table)
 
    ![discard statements](https://curriculum-content.s3.amazonaws.com/6036/sql-select-statement/confirmdiscard.png)  
 
-3. Confirm the table contains all 8 rows by selecting all rows and columns:
+Confirm the table contains all 8 rows by selecting all rows and columns:
 
    ![confirm pet table rows](https://curriculum-content.s3.amazonaws.com/6036/sql-select-statement/8pets.png)  
 
@@ -125,15 +125,19 @@ Result
 <td>
 Display all columns and rows:
 
-```sql
+<pre>
+<code>
+
 SELECT *
 FROM pet;
-```
+
+</code>
+</pre>
 
 </td>
 <td>
 
-```text
+<pre>
 id  name        species	breed	            age
 
 1   Moe         cat     Tabby	            10
@@ -144,7 +148,7 @@ id  name        species	breed	            age
 6   Herbie      fish    NULL                4
 7   Fifi        dog     Poodle              1
 8   Lulu        dog     Yorkiepoo           12
-```
+</pre>
 
 </td>
 </tr>
@@ -155,15 +159,19 @@ id  name        species	breed	            age
 <td>
 Display a subset of columns:
 
-```sql
+<pre>
+<code>
+
 SELECT name, species
 FROM pet;
-```
+
+</code>
+</pre>
 
 </td>
 <td>
 
-```text
+<pre>
 name        species
 
 Moe         cat
@@ -174,7 +182,7 @@ Honey       dog
 Herbie      fish
 Fifi        dog
 Lulu        dog
-```
+</pre>
 
 </td>
 </tr>
@@ -183,21 +191,25 @@ Lulu        dog
 <td>
 Display unique values within a column:
 
-```sql
+<pre>
+<code>
+
 SELECT DISTINCT species
 FROM pet; 
-```
+
+</code>
+</pre>
 
 </td>
 <td>
 
-```text
+<pre>
 species
 
 dog
 cat
 fish
-```
+</pre>
 
 </td>
 </tr>
@@ -232,22 +244,26 @@ Result
 <td>
 Display name and age of pets younger than 5:
 
-```sql
+<pre>
+<code>
+
 SELECT name, age
 FROM pet
 WHERE age < 5;
-```
+
+</code>
+</pre>
 
 </td>
 <td>
 
-```text
+<pre>
 name    age
 
 Hana    1
 Herbie  4
 Fifi    1
-```
+</pre>
 
 </td>
 </tr>
@@ -258,11 +274,15 @@ Fifi    1
 <td>
 Display name, breed, age of all cats:
 
-```sql
+<pre>
+<code>
+
 SELECT name, breed, age
 FROM pet
 WHERE species = 'cat';
-```
+
+</code>
+</pre>
 
 Notice SQL uses only one equal sign to
 test for equality.
@@ -270,13 +290,13 @@ test for equality.
 </td>
 <td>
 
-```text
+<pre>
 name        breed               age
 
 Moe         Tabby               10
 Hana        Tabby               1
 Lil' Bub    American Shorthair  5
-```
+</pre>
 
 </td>
 </tr>
@@ -287,16 +307,20 @@ Lil' Bub    American Shorthair  5
 Display name, species of any
 pet that is not a cat:
 
-```sql
+<pre>
+<code>
+
 SELECT name, species
 FROM pet
 WHERE species != 'cat';
-```
+
+</code>
+</pre>
 
 </td>
 <td>
 
-```text
+<pre>
 name        species
 
 Snuggles    dog         
@@ -304,7 +328,7 @@ Honey       dog
 Herbie      fish
 Fifi        dog
 Lulu        dog   
-```
+</pre>
 
 </td>
 </tr>
@@ -315,20 +339,24 @@ Lulu        dog
 Display name, breed, and age of
 cats younger than 5:
 
-```sql
+<pre>
+<code>
+
 SELECT name, breed, age
 FROM pet
 WHERE species = 'cat' AND age < 5;
-```
+
+</code>
+</pre>
 
 </td>
 <td>
 
-```text
+<pre>
 name        breed               age
 
 Hana         Tabby               1
-```
+</pre>
 
 </td>
 </tr>
@@ -337,26 +365,30 @@ Hana         Tabby               1
 
 <tr>
 <td>
-Display name and age of
-pets between 4 and 10 years old (inclusive):
+Display name and age of pets between<br>
+4 and 10 years old (inclusive):
 
-```sql
+<pre>
+<code>
+
 SELECT name, age
 FROM pet
 WHERE age >= 4 AND age <= 10;
-```
+
+</code>
+</pre>
 
 </td>
 <td>
 
-```text
+<pre>
 name        age
 
 Moe         10
 Lil' Bub    5
 Snuggles    5
 Herbie      4
-```
+</pre>
 
 </td>
 </tr>
@@ -364,27 +396,30 @@ Herbie      4
 
 <tr>
 <td>
-The BETWEEN keyword
-can also be used to specify
+The BETWEEN keyword can also be used to<br>specify
 a range of ages (inclusive):
 
-```sql
+<pre>
+<code>
+
 SELECT name,age
 FROM pet
 WHERE age BETWEEN 4 AND 10;
-```
+
+</code>
+</pre>
 
 </td>
 <td>
 
-```text
+<pre>
 name        age
 
 Moe         10
 Lil' Bub    5
 Snuggles    5
 Herbie      4
-```
+</pre>
 
 </td>
 </tr>
@@ -398,21 +433,25 @@ Herbie      4
 Display pets whose breed is
 Bichon or Cavachon:
 
-```sql
+<pre>
+<code>
+
 SELECT name, breed
 FROM pet
 WHERE breed = 'Bichon' OR breed = 'Cavachon';
-```
+
+</code>
+</pre>
 
 </td>
 <td>
 
-```text
+<pre>
 name        breed
 
 Snuggles    Bichon
 Honey       Cavachon
-```
+</pre>
 
 </td>
 </tr>
@@ -422,21 +461,25 @@ Honey       Cavachon
 The IN keyword can also be
 used to match a list of possible values:
 
-```sql
+<pre>
+<code>
+
 SELECT name, breed
 FROM pet
 WHERE breed IN ( 'Bichon' , 'Cavachon' );
-```
+
+</code>
+</pre>
 
 </td>
 <td>
 
-```text
+<pre>
 name        breed
 
 Snuggles    Bichon
 Honey       Cavachon
-```
+</pre>
 
 </td>
 </tr>
@@ -446,23 +489,27 @@ Honey       Cavachon
 
 <tr>
 <td>
-The NOT keyword retrieves all rows that
+The NOT keyword retrieves all rows that<br>
 do not match the predicate:
 
-```sql
+<pre>
+<code>
+
 SELECT name, species
 FROM pet
 WHERE species NOT IN ( 'dog' , 'cat' );
-```
+
+</code>
+</pre>
 
 </td>
 <td>
 
-```text
+<pre>
 name    species
 
 Herbie  fish
-```
+</pre>
 
 </td>
 </tr>
@@ -472,22 +519,26 @@ Herbie  fish
 <tr>
 <td>
 The NULL keyword is used to
-test for missing or unknown values:
+test<br> for missing or unknown values:
 
-```sql
+<pre>
+<code>
+
 SELECT id, name, age
 FROM pet
 WHERE age IS NULL;
-```
+
+</code>
+</pre>
 
 </td>
 <td>
 
-```text
+<pre>
 id  name    age
 
 5   Honey   null
-```
+</pre>
 
 </td>
 </tr>
@@ -498,16 +549,20 @@ id  name    age
 Use NOT NULL to
 test for known values:
 
-```sql
+<pre>
+<code>
+
 SELECT id, name, age
 FROM pet
 WHERE age IS NOT NULL;
-```
+
+</code>
+</pre>
 
 </td>
 <td>
 
-```text
+<pre>
 id  name        age
 1   Moe         10
 2   Hana        1
@@ -516,7 +571,7 @@ id  name        age
 6   Herbie      4
 7   Fifi        1
 8   Lulu        12   
-```
+</pre>
 
 </td>
 </tr>
@@ -563,21 +618,25 @@ Result
 Display name and breed
 where breed ends in "chon":
 
-```sql
+<pre>
+<code>
+
 SELECT name, breed
 FROM pet
 WHERE breed LIKE '%chon';
-```
+
+</code>
+</pre>
 
 </td>
 <td>
 
-```text
+<pre>
 name        breed
 
 Snuggles    Bichon
 Honey       Cavachon
-```
+</pre>
 
 </td>
 </tr>
@@ -586,24 +645,28 @@ Honey       Cavachon
 <tr>
 <td>
 Display name and breed
-where breed contains the
+where breed contains<br> the
 substring "poo" (case sensitive).
 
 
-```sql
+<pre>
+<code>
+
 SELECT name, breed
 FROM pet
 WHERE breed LIKE '%poo%';
-```
+
+</code>
+</pre>
 
 </td>
 <td>
 
-```text
+<pre>
 name   breed
 
 Lulu    Yorkiepoo
-```
+</pre>
 
 </td>
 </tr>
@@ -611,24 +674,28 @@ Lulu    Yorkiepoo
 <tr>
 <td>
 Display name and breed
-where breed contains the
+where breed contains <br>the
 substring "poo" (case insensitive match).
 
-```sql
+<pre>
+<code>
+
 SELECT name, breed
 FROM pet
 WHERE LOWER(breed) LIKE '%poo%';
-```
+
+</code>
+</pre>
 
 </td>
 <td>
 
-```text
+<pre>
 name   breed
 
 Fifi    Poodle
 Lulu    Yorkiepoo
-```
+</pre>
 
 </td>
 </tr>
@@ -659,23 +726,27 @@ Result
 <td>
 Sort in ascending order of age:
 
-```sql
+<pre>
+<code>
+
 SELECT name, age
 FROM pet
 WHERE species = 'cat'
 ORDER BY age;
-```
+
+</code>
+</pre>
 
 </td>
 <td>
 
-```text
+<pre>
 name        age
 
 Hana        1
 Lil' Bub    5
 Moe         10
-```
+</pre>
 
 </td>
 </tr>
@@ -685,23 +756,26 @@ Moe         10
 <td>
 Sort in descending order of age:
 
-```sql
+<pre>
+<code>
 SELECT name, age
 FROM pet
 WHERE species = 'cat'
 ORDER BY age DESC;
-```
+
+</code>
+</pre>
 
 </td>
 <td>
 
-```text
+<pre>
 name        age
 
 Moe         10
 Lil' Bub    5
 Hana        1
-```
+</pre>
 
 </td>
 </tr>
@@ -714,17 +788,21 @@ Secondary sort in descending order by age.
 
 The `ASC` keyword can be omitted:
 
-```sql
+<pre>
+<code>
+
 SELECT name, species, age
 FROM pet
 ORDER BY species ASC, age DESC;
-```
+
+</code>
+</pre>
 
 NOTE: the `null` value is ordered as the largest dog age.
 </td>
 <td>
 
-```text
+<pre>
 name        species age
 
 Moe         cat     10
@@ -735,7 +813,7 @@ Lulu        dog     12
 Snuggles    dog     5
 Fifi        dog     1
 Herbie      fish    4
-```
+</pre>
 
 </td>
 </tr>
@@ -746,17 +824,21 @@ Herbie      fish    4
 Omit rows that
 contain null values when sorting:
 
-```sql
+<pre>
+<code>
+
 SELECT name, species, age
 FROM pet
 WHERE age IS NOT NULL
 ORDER BY species ASC, age DESC;
-```
+
+</code>
+</pre>
 
 </td>
 <td>
 
-```text
+<pre>
 name        species age
 
 Moe         cat     10
@@ -766,7 +848,7 @@ Lulu        dog     12
 Snuggles    dog     5
 Fifi        dog     1
 Herbie      fish    4
-```
+</pre>
 
 </td>
 </tr>
@@ -781,23 +863,27 @@ View the
 2 oldest pets by limiting the number
 of rows to display:
 
-```sql
+<pre>
+<code>
+
 SELECT name, age
 FROM pet
 WHERE age IS NOT NULL
 ORDER BY age DESC
 LIMIT 2;
-```
+
+</code>
+</pre>
 
 </td>
 <td>
 
-```text
+<pre>
 name    age
 
 Lulu    12
 Moe     10
-```
+</pre>
 
 </td>
 </tr>
